@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="  
+     http://www.springframework.org/schema/beans   
+     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd  
+     http://www.springframework.org/schema/tx   
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd  
+     http://www.springframework.org/schema/aop   
+     http://www.springframework.org/schema/aop/spring-aop-3.0.xsd  
+     http://www.springframework.org/schema/context  
+     http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<!--/1、spring 整合mybatis 数据库配置读取 创建数据源的连接配置  要加上classpath*:-->
+	<context:property-placeholder location="classpath*:db.properties" />
+	<!-- 配置 dbcp数据源 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="${driverName}" />
+		<property name="url" value="${url}" />
+		<property name="username" value="${username}" />
+		<property name="password" value="${password}" />
+	</bean>
+	<!--2.先配置 mybatis的sqlsessionfactory工厂类 配置spring与mybatis整合使用的插件 -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<!-- 优化： 不再需要mybatis的配置文件 来配置mybatis中的别名 -->
+		<property name="typeAliasesPackage" value="com.yc.web.bean"></property>
+		<!-- 3、配置 mybatis 配置文件configuration中的settings配置项 -->
+		<property name="configurationProperties">
+			<props>
+				<prop key="logImpl">LOG4J</prop>
+			</props>
+		</property>
+		<property name="mapperLocations" value="classpath:com/yc/web/mapper/*.xml">
+		</property>
+	</bean>
+	
+	<!-- enable the configuration of transactional behavior based on annotations -->
+	<tx:annotation-driven transaction-manager="txManager"/>
+	<!-- mybatis 与jdbc 使用同款 事务管理 -->
+	<bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!-- (this dependency is defined somewhere else) -->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+	<!-- 4.创建sqlsession -->
+	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	<!-- 注解配合xml 使用时，加入下面 自动扫描基础包下面的所有自定义类到spring托管，此时便不用再配置bean来声明 -->
+	<context:component-scan base-package="com.yc.web"/>
+</beans>

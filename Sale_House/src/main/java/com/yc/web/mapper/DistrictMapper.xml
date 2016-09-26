@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.yc.web.mapper.DistrictMapper">  
+        <select id="getDistrict"  resultType="District">  
+           select * from district where id=#{id}
+        </select> 
+        <select id="getAllDistrict" resultMap="DistrictMap">  
+           select d.* ,d.id did  from district d
+        </select>  
+         <resultMap type="District" id="DistrictMap">
+         	<collection property="streets" ofType="Street" column="did" select="com.yc.web.mapper.StreetMapper.getStreetByDistrict"></collection>
+         </resultMap> 
+    </mapper>  

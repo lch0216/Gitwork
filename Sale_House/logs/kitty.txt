@@ -1,0 +1,63 @@
+2016-07-29 11:13:56,467 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2016-07-29 11:13:56,474 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2016-07-29 11:13:56,490 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 11:13:56,490 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 11:13:56,490 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 11:13:56,490 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 11:13:56,599 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Opening JDBC Connection
+2016-07-29 11:13:57,131 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] Created connection 36333492.
+2016-07-29 11:13:57,131 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@22a67b4]
+2016-07-29 11:13:57,131 main DEBUG [com.yc.web.dao.FilmTypeDao.findAllTypes] ==>  Preparing: select * from filmType 
+2016-07-29 11:13:57,271 main DEBUG [com.yc.web.dao.FilmTypeDao.findAllTypes] ==> Parameters: 
+2016-07-29 11:13:57,381 main DEBUG [com.yc.web.dao.FilmTypeDao.findAllTypes] <==      Total: 5
+2016-07-29 16:37:23,747 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2016-07-29 16:37:23,804 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2016-07-29 16:37:23,841 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 16:37:23,841 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 16:37:23,841 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 16:37:23,842 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 16:37:24,013 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Opening JDBC Connection
+2016-07-29 16:37:24,591 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] Created connection 2083117811.
+2016-07-29 16:37:24,591 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@7c29daf3]
+2016-07-29 16:37:24,596 main DEBUG [com.yc.web.dao.FilmInfoDao.findAllFilmInfo] ==>  Preparing: SELECT fid,filmName,actor,director,price,filmType.typeName as typeName ,filmInfo.tid as tid FROM filmInfo LEFT OUTER JOIN filmType on filmInfo.tid = filmType.tid WHERE (1=1) 
+2016-07-29 16:37:24,671 main DEBUG [com.yc.web.dao.FilmInfoDao.findAllFilmInfo] ==> Parameters: 
+2016-07-29 16:37:24,706 main DEBUG [com.yc.web.dao.FilmInfoDao.findAllFilmInfo] <==      Total: 2
+2016-07-29 17:09:34,500 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2016-07-29 17:09:34,504 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2016-07-29 17:09:34,534 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:09:34,534 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:09:34,535 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:09:34,535 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:09:34,664 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Opening JDBC Connection
+2016-07-29 17:09:35,175 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] Created connection 2042495840.
+2016-07-29 17:09:35,178 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@79be0360]
+2016-07-29 17:09:35,182 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] ==>  Preparing: insert into filmInfo(filmName,actor,director,price,tid) values(?,?,?,?,?) 
+2016-07-29 17:09:35,260 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] ==> Parameters: A计划(String), AAA(String), null, 0.0(Double), null
+2016-07-29 17:09:35,335 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] <==    Updates: 1
+2016-07-29 17:13:52,145 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2016-07-29 17:13:52,149 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2016-07-29 17:13:52,191 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:13:52,191 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:13:52,191 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:13:52,192 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 17:13:52,388 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Opening JDBC Connection
+2016-07-29 17:13:52,977 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] Created connection 1730173572.
+2016-07-29 17:13:52,977 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@67205a84]
+2016-07-29 17:13:52,980 main DEBUG [com.yc.web.dao.FilmInfoDao.findAllFilmInfo] ==>  Preparing: SELECT fid,filmName,actor,director,price,filmType.typeName as typeName ,filmInfo.tid as tid FROM filmInfo LEFT OUTER JOIN filmType on filmInfo.tid = filmType.tid WHERE (1=1) 
+2016-07-29 17:13:53,076 main DEBUG [com.yc.web.dao.FilmInfoDao.findAllFilmInfo] ==> Parameters: 
+2016-07-29 17:13:53,111 main DEBUG [com.yc.web.dao.FilmInfoDao.findAllFilmInfo] <==      Total: 3
+2016-07-29 17:13:53,114 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] ==>  Preparing: insert into filmInfo(filmName,actor,director,price,tid) values(?,?,?,?,?) 
+2016-07-29 17:13:53,116 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] ==> Parameters: A计划(String), AAA(String), null, 0.0(Double), null
+2016-07-29 17:13:53,117 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] <==    Updates: 1
+2016-07-29 21:54:37,689 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.commons.JakartaCommonsLoggingImpl' adapter.
+2016-07-29 21:54:37,693 main DEBUG [org.apache.ibatis.logging.LogFactory] Logging initialized using 'class org.apache.ibatis.logging.log4j.Log4jImpl' adapter.
+2016-07-29 21:54:37,725 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 21:54:37,725 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 21:54:37,725 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 21:54:37,725 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] PooledDataSource forcefully closed/removed all connections.
+2016-07-29 21:54:37,845 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Opening JDBC Connection
+2016-07-29 21:54:38,360 main DEBUG [org.apache.ibatis.datasource.pooled.PooledDataSource] Created connection 36333492.
+2016-07-29 21:54:38,361 main DEBUG [org.apache.ibatis.transaction.jdbc.JdbcTransaction] Setting autocommit to false on JDBC Connection [com.mysql.jdbc.JDBC4Connection@22a67b4]
+2016-07-29 21:54:38,364 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] ==>  Preparing: insert into filmInfo(filmName,actor,director,price,tid) values(?,?,?,?,?) 
+2016-07-29 21:54:38,424 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] ==> Parameters: A计划(String), AAA(String), null, 0.0(Double), null
+2016-07-29 21:54:38,501 main DEBUG [com.yc.web.dao.FilmInfoDao.saveFilmInfo] <==    Updates: 1

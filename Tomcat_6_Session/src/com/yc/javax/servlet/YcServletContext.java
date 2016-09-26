@@ -20,12 +20,10 @@ public class YcServletContext implements ServletContext {
 	public Map<String, Servlet> getServlets() {
 		return this.servlets;
 	}
-
 	@Override
 	public Servlet getServlet(String servletName) {
 		return this.servlets.get(servletName);
 	}
-
 	@Override
 	public void setServlet(String servletName, Servlet servlet) {
 		this.servlets.put(servletName, servlet);

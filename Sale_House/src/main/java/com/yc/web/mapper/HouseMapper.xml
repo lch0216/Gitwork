@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper  
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+ <mapper namespace="com.yc.web.mapper.HouseMapper">  
+        <insert id="saveHouse" parameterType="House">  
+           <selectKey keyProperty="id" order="BEFORE" resultType="Integer" >
+           		select max(id) +1 as id from house
+           </selectKey>
+           		insert into house values(#{id},#{title},#{description},#{price},
+           		now(),#{floorage},#{contact},#{user.id},#{houseType.id},#{street.id})
+        </insert> 
+        <resultMap type="House" id="HouseMap">
+         	<association property="user"  column="user_id" select="com.yc.web.mapper.UserMapper.getUser"></association>
+        	<association property="houseType"  column="type_id" select="com.yc.web.mapper.HouseTypeMapper.getHouseType"></association>
+        	<association property="street"  column="street_id" select="com.yc.web.mapper.StreetMapper.getStreet"></association>
+        </resultMap> 
+        <select id="getHouse" resultMap="HouseMap">  
+           select * from house
+        </select> 
+        <select id="getHouseById" parameterType="House" resultMap="HouseMap">  
+           select * from house where id=#{id}
+        </select> 
+        <!--  查询房子总数  -->
+        <select id="getHouseCount"  resultType="int">  
+           select count(1) from house
+        </select>  
+        <update id="updateHouse" parameterType="House">
+        	update house set title = #{title},description= #{description},price = #{price},
+           	pubdate = now(),floorage = #{floorage},contact = #{contact},
+           	user_id = #{user.id},type_id = #{houseType.id},street_id = #{street.id}
+           	where id =#{id}
+        </update>
+        <sql id="conditionSql">
+        	from house 
+        	<where>
+        		<if test="title != null and title != '' ">
+        			title like '%${title}%'
+        		</if>
+        		<if test="minPrice != null ">
+        			and (price between #{minPrice} and #{maxPrice} ) 
+        		</if>
+        		<if test="minFloorage != null ">
+        			and (floorage between #{minFloorage} and #{maxFloorage} ) 
+        		</if>
+        		<if test="typeId != null and typeId != '' ">
+        			and type_id =#{typeId}
+        		</if>
+        		<if test="userId != null ">
+        			and user_id =#{userId}
+        		</if>
+        	</where>
+        </sql>
+         <select id="findHouseCondition" parameterType="map" resultMap="HouseMap">  
+           select * <include refid="conditionSql"/>
+        </select>
+        <select id="findHouseConditionCount" parameterType="map" resultType="int">  
+           select count(*) <include refid="conditionSql"/>
+        </select> 
+        <delete id="delHouse" parameterType="int">
+        	delete from house where id=#{id}
+        </delete> 
+    </mapper>  
